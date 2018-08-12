@@ -1,8 +1,18 @@
+server:
+  port: 8081
 spring:
-  datasource:
-    url: jdbc:mysql://192.167.31.214:3306/springcloudkeith?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
-env:
-  test
+  application:
+    name: keith-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ShenItKeith/config-repro.git
+          username: it_keith@163.com
+          password: 870216032shen
+eureka:
+  instance:
+    hostname: keith-config
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
